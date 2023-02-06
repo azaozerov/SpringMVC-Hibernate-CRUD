@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://thymeleaf.org">
+  <head>
+      <meta charset="UTF-8">
+      <title>Изменение пользователя</title>
+  </head>
+  <body>
+    <form th:method="PATCH" th:action="@{/users/{id}(id=${user.getId()})}" th:object="${user}">
+<!--      в HTML существует только два метода HTTP - GET и POST, thymeleaf метод PATCH сам преоразует в POST и добавит скрытое поле _method="PATCH"
+          это скрытое поле мы прочитаем на стороне spring с помощью фильтра. если не использовать шаблонизатор thymeleaf, то нужно добавить
+          скрытое поле руками
+
+          можно передать id через URL - @{/users/{id}(id=${user.getId()})}, но я использую скрытое поле в форме
+-->
+      <input type="hidden" th:field="*{id}" id="id" >
+      <br/>
+      <label for="name">Имя: </label>
+      <input type="text" th:field="*{name}" id="name" >
+      <br/>
+      <label for="surname">Фамилия: </label>
+      <input type="text" th:field="*{surname}" id="surname" >
+      <br/>
+      <label for="age">Возраст: </label>
+      <input type="number" th:field="*{age}" id="age">
+      <br/>
+      <input type="submit" value="Сохранить">
+    </form>
+  </body>
+</html>
