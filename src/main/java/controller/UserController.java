@@ -1,14 +1,11 @@
 package controller;
 
 import model.User;
-import model.UserService;
+import service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/users")
@@ -18,10 +15,6 @@ public class UserController {
     @Autowired
     public UserController(UserService us) {
         this.us = us;
-        us.createUser(new User("Иван", "Иванов", (byte) 25));
-        us.createUser(new User("Сергей", "Сергеев", (byte) 45));
-        us.createUser(new User("Митрофан", "Митрофанов", (byte) 78));
-        us.createUser(new User("Петр", "Петров", (byte) 12));
     }
 
     @GetMapping

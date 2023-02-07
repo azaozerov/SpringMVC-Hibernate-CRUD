@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan({"model", "DAO"})
+@ComponentScan({"model", "dao", "service"})
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement
 public class DbConfig {
@@ -56,6 +56,7 @@ public class DbConfig {
         Properties props = new Properties();
         props.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
         props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+        props.put("hibernate.hbm2ddl.import_files", env.getProperty("hibernate.hbm2ddl.import_files"));
 //        props.put("hibernate.show_sql", "true");
 //        props.put("hibernate.hbm2ddl.auto", "create" );
 

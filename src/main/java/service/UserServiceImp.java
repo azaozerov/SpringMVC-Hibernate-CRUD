@@ -1,11 +1,11 @@
-package model;
+package service;
 
+import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import DAO.*;
+import dao.*;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Service
@@ -42,13 +42,4 @@ public class UserServiceImp implements UserService {
     public List<User> getAllUsers() {
         return userDAO.getAllUsers();
     }
-
-    //    @PostConstruct
-//    public void doInit(){
-//        userDAO.createUser(new User("Иван"    , "Иванов"    ,(byte) 25) );
-//        userDAO.createUser(new User("Сергей"  , "Сергеев"   ,(byte) 45) );
-//        userDAO.createUser(new User("Митрофан", "Митрофанов",(byte) 78) );
-//        userDAO.createUser(new User("Петр"    , "Петров"    ,(byte) 12) );
-//    }
-
 }

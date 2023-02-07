@@ -1,7 +1,6 @@
 import config.DbConfig;
 import model.User;
-import model.UserService;
-import model.UserServiceImp;
+import service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.List;
